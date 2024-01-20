@@ -4,9 +4,8 @@ import java.util.Date;
 
 public class Main {
     public static void main(String[] args) {
-        int [][] numbers = { { 1, 2, 3}, {4, 5, 6} };
-        numbers[0][0] = 1;
-        System.out.println(Arrays.deepToString(numbers));
+        final float PI = 3.14F; //final is the keyword for const, constants are conventionally capitalized in JAVA
+
     }
 }
 
