@@ -3,11 +3,12 @@ import java.util.Date;
 
 public class Main {
     public static void main(String[] args) {
-        Point point1 = new Point(1, 1);
-        Point point2 = point1;
-        point1.x = 2;
-
-        System.out.println(point2);
+//        String message = new String("Hello World");
+        // This how you always deal with reference types in Java^^^
+        String message = "Hello World" + "!!";
+//        message.endsWith("!!");
+        // But java allows you to do this as a short hand^^, still a reference type though
+        System.out.println(message.length());
 
 
     }
