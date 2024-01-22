@@ -6,52 +6,46 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        Scanner pricipalScan = new Scanner(System.in);
+        final byte MONTHS_IN_YEAR = 12;
+        final byte PERCENT = 100;
+        // declare constant vars up top that way your equations don't have random numbers
+
+        Scanner scanner = new Scanner(System.in);
+        // you can use scanner like this to DRY
+        // saving inputs to variables
+        // getting simple new variables in same code section where you are getting input, well-designed
+
+
         System.out.print("Principal: ");
-        int principal = pricipalScan.nextInt();
+        int principal = scanner.nextInt();
 //        System.out.print(principal);
 
-        Scanner interestScan = new Scanner(System.in);
         System.out.print("Annual Interest Rate: ");
-        float interest = interestScan.nextFloat();
+        float annualInterest = scanner.nextFloat();
+        float monthlyInterest = annualInterest / PERCENT / MONTHS_IN_YEAR;
 //        System.out.print(interest);
 
 
-        Scanner periodScan = new Scanner(System.in);
         System.out.print("Period (Years): ");
-        int period = periodScan.nextInt();
-//        System.out.print(period);
+        byte years = scanner.nextByte();
+        int numberOfPayments = years * MONTHS_IN_YEAR;
+//        System.out.print(years);
 
 
-        int n = period * 12;
-//        System.out.println(n);
+        // entire equation handled here
+        // I would need to check everything with a calc before I got it this refactored
+        // too much debugging if something goes wrong PEMDAS wise
+        double mortgage = principal
+                    * (monthlyInterest * Math.pow(1 + monthlyInterest, numberOfPayments))
+                    / (Math.pow(1 + monthlyInterest, numberOfPayments) - 1);
 
-        float r = (interest / 100) / 12;
-
-        // now lets break up the equation into smaller pieces
-        // int payments = (1 + interest)^n //lets see if we can print this as a float
-        // 1 + interest is a float
-
-        float p = principal;
-
-//        System.out.println("r: " + r);
-//        System.out.println("n: " + n);
-
-        double parens = Math.pow(((1 + r)), (n));
-
-        double top = r * parens;
-
-        double bottom = parens - 1;
-//        System.out.println("parens: " + parens);
-//        System.out.println("top: " + top);
-//        System.out.println("bottom: " + bottom);
-
-        double mortgage = (p * (top / bottom));
-
-        NumberFormat currency = NumberFormat.getCurrencyInstance();
-        String result = currency.format( mortgage);
-
-        System.out.println("Mortgage: " + result);
+        // Right to Left:
+        // The NumberFormat Class is called
+        // a getCurrencyInstance is created
+        // a method ".format()" can then be called on that instance
+        // the result is converted to a String
+        String mortgageFormatted = NumberFormat.getCurrencyInstance().format(mortgage);
+        System.out.println("Mortgage: " + mortgageFormatted);
     }
 }
 
