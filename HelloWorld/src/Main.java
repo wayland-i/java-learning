@@ -22,10 +22,36 @@ public class Main {
         int period = periodScan.nextInt();
 //        System.out.print(period);
 
-        String mortgage = "answer";
 
+        int n = period * 12;
+//        System.out.println(n);
 
-        System.out.println("Mortgage: " + mortgage);
+        float r = (interest / 100) / 12;
+
+        // now lets break up the equation into smaller pieces
+        // int payments = (1 + interest)^n //lets see if we can print this as a float
+        // 1 + interest is a float
+
+        float p = principal;
+
+//        System.out.println("r: " + r);
+//        System.out.println("n: " + n);
+
+        double parens = Math.pow(((1 + r)), (n));
+
+        double top = r * parens;
+
+        double bottom = parens - 1;
+//        System.out.println("parens: " + parens);
+//        System.out.println("top: " + top);
+//        System.out.println("bottom: " + bottom);
+
+        double mortgage = (p * (top / bottom));
+
+        NumberFormat currency = NumberFormat.getCurrencyInstance();
+        String result = currency.format( mortgage);
+
+        System.out.println("Mortgage: " + result);
     }
 }
 
