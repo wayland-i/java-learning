@@ -9,7 +9,7 @@ public class Main {
         if (temp > 30) {
             System.out.println("It's a hot day");
             System.out.println("Drink plenty of water");
-        } else if (temp > 20 && temp <= 30) {
+        } else if (temp > 20) {
             System.out.println("It's a nice day");
         } else {
             System.out.println("It's cold");
