@@ -73,4 +73,7 @@ public class Main {
         System.out.println("Mortgage: " + mortgageFormatted);
     }
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4b7704214eac267ca8005019107177ac55351ad6
