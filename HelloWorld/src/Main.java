@@ -1,7 +1,5 @@
-import java.awt.*;
-        import java.text.NumberFormat;
+import java.text.NumberFormat;
 import java.util.Scanner;
-
 
 public class Main {
     public static void main(String[] args) {
@@ -39,9 +37,6 @@ public class Main {
             }
         }
 
-//        System.out.println(annualInterest);
-//        System.out.println(monthlyInterest);
-
 
         byte years;
         int numberOfPayments;
@@ -73,7 +68,4 @@ public class Main {
         System.out.println("Mortgage: " + mortgageFormatted);
     }
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> 4b7704214eac267ca8005019107177ac55351ad6
